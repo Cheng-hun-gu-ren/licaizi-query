@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理财产品查询工具</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-chart-line me-2"></i>理财产品查询工具</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showTab('query')">软件介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showTab('guide')">使用说明</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showTab('download')">下载安装</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+
+        <!-- 软件介绍标签页 -->
+        <div id="query-tab" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-info-circle me-2"></i>软件介绍</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p class="lead">理财产品查询工具是一款专为金融行业设计的理财产品信息抓取工具，用于从中国理财网实时获取产品详细信息。</p>
+                            
+                            <h6><i class="fas fa-database me-2 text-primary"></i>数据来源</h6>
+                            <p>中国理财网-理财产品专栏 <a href="https://www.chinawealth.com.cn/lcweb/management/proScreen" target="_blank" class="link-primary">https://www.chinawealth.com.cn/lcweb/management/proScreen</a></p>
+                            
+                            <h6><i class="fas fa-exchange-alt me-2 text-primary"></i>输入和输出</h6>
+                            <ul>
+                                <li><strong>输入：</strong>产品登记编码列向量或单个产品登记编码</li>
+                                <li><strong>输出：</strong>结构化的产品信息</li>
+                            </ul>
+
+                            
+                            <div class="alert alert-info mt-4">
+                                <h6><i class="fas fa-lightbulb me-2"></i>主要特点</h6>
+                                <ul class="mb-0">
+                                    <li><strong>人机协同处理验证码：</strong>目前平均查询5个产品会跳一次验证码，需要人工协助处理</li>
+                                    <li><strong>两种查询模式：</strong>支持单个产品查询和批量产品查询</li>
+                                    <li><strong>灵活的字段选择：</strong>可自定义显示和导出的产品信息字段</li>
+                                    <li><strong>实时进度监控：</strong>批量查询时实时显示进度和状态</li>
+                                    <li><strong>灵活导出：</strong>支持Excel导出和剪贴板复制</li>
+                                </ul>
+                            </div>
+
+                            <div class="alert alert-success mt-4">
+                                <h6><i class="fas fa-user me-2"></i>关于开发者</h6>
+                                <p class="mb-2">
+                                    本软件借助人工智能工具Claude辅助开发，旨在提高金融从业人员的工作效率，降低数据核验的人力成本和出错风险。
+                                </p>
+                                <p class="mb-0">
+                                    <i class="fas fa-link me-1"></i>开发者简历：<a href="https://career.chenggao.top" target="_blank" class="link-dark fw-bold">career.chenggao.top</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6><i class="fas fa-cogs me-2"></i>系统要求</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>Windows 7/8/10/11</li>
+                                        <li><i class="fas fa-check text-success me-2"></i><strong>必须安装Firefox浏览器</strong></li>
+                                        <li><i class="fas fa-check text-success me-2"></i>至少2GB可用内存</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>网络连接</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card mt-3">
+                                <div class="card-header">
+                                    <h6><i class="fas fa-exclamation-triangle me-2"></i>免责声明</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p class="small text-muted mb-0">
+                                        本软件仅用于合法、正规的数据收集和验证，请遵守相关网站的使用条款和规定。
+                                        软件开发者不对因使用本软件造成的任何问题负责。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 使用说明标签页 -->
+        <div id="guide-tab" class="tab-content d-none">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-question-circle me-2"></i>使用说明</h5>
+                </div>
+                <div class="card-body">
+                    <!-- 安装步骤 -->
+                    <h6 class="text-primary"><i class="fas fa-cog me-2"></i>安装步骤</h6>
+                    <div class="mb-4">
+                        <ol>
+                            <li><strong>下载软件：</strong>从"下载安装"页面下载ProductQuery.exe</li>
+                            <li><strong>安装Firefox：</strong>确保已安装最新版Firefox浏览器（必需）</li>
+                            <li><strong>解压软件包：</strong>解压到任意文件夹</li>
+                            <li><strong>创建快捷方式：</strong>建议对ProductQuery.exe创建桌面快捷方式</li>
+                        </ol>
+                        <div class="text-center mt-3">
+                            <img src="https://guorui-cuhksz.oss-cn-shenzhen.aliyuncs.com/%E5%9B%BE%E7%89%87/%E5%88%9B%E5%BB%BA%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F.png" alt="创建快捷方式" class="img-fluid border rounded" style="max-width: 70%; height: auto;">
+                            <p class="small text-muted mt-2">创建桌面快捷方式示例</p>
+                        </div>
+                    </div>
+
+                    <!-- 使用方法 -->
+                    <h6 class="text-primary"><i class="fas fa-play me-2"></i>使用方法</h6>
+                    <div class="mb-4">
+                        <h6><i class="fas fa-rocket me-2 text-success"></i>软件初始化</h6>
+                        <p>启动软件后，请等待软件完成初始化过程，运行后ProductQuery.exe所在目录会自动创建两个文件夹，同时会打开Firefox浏览器。</p>
+                        <p><strong>等待终端窗口出现绿色字体显示"初始化成功"，表示软件已准备就绪。</strong></p>
+                        <div class="text-center mt-3">
+                            <img src="https://guorui-cuhksz.oss-cn-shenzhen.aliyuncs.com/图片/初始化.png" alt="软件初始化界面" class="img-fluid border rounded" style="max-width: 70%; height: auto;">
+                            <p class="small text-muted mt-2">软件初始化界面</p>
+                        </div>
+                    </div>
+
+                    <!-- 查询模式 -->
+                    <div class="mb-4">
+                        <h6><i class="fas fa-search me-2 text-info"></i>普通查询模式</h6>
+                        <ol>
+                            <li>切换到"普通查询"选项卡</li>
+                            <li>在"输入登记编码"框中输入产品完整登记编码</li>
+                            <li>点击"查询"按钮获取产品信息</li>
+                            <li>查询结果将显示在下方表格中</li>
+                            <li>可使用"复制到剪贴板"或"导出到Excel"功能保存数据</li>
+                        </ol>
+                        <div class="text-center mt-3">
+                            <img src="https://guorui-cuhksz.oss-cn-shenzhen.aliyuncs.com/图片/普通查询.png" alt="普通查询界面" class="img-fluid border rounded" style="max-width: 70%; height: auto;">
+                            <p class="small text-muted mt-2">普通查询界面</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6><i class="fas fa-list me-2 text-info"></i>批量查询模式</h6>
+                        <ol>
+                            <li>启动软件，等待终端窗口出现绿色字体显示初始化成功</li>
+                            <li>在左侧文本框中粘贴多个登记编码（每行一个或从Excel复制）</li>
+                            <li>点击"开始批量查询"按钮</li>
+                            <li>在右侧终端窗口查看查询进度</li>
+                            <li>查询完成后可使用"保存到..."或"复制到剪贴板"功能导出结果</li>
+                        </ol>
+                        <div class="text-center mt-3">
+                            <img src="https://guorui-cuhksz.oss-cn-shenzhen.aliyuncs.com/图片/批量查询界面.png" alt="批量查询界面" class="img-fluid border rounded" style="max-width: 70%; height: auto;">
+                            <p class="small text-muted mt-2">批量查询界面展示</p>
+                        </div>
+                    </div>
+
+                    <!-- 验证码处理 -->
+                    <h6 class="text-primary"><i class="fas fa-shield-alt me-2"></i>人机协同验证码处理</h6>
+                    <div class="mb-4">
+                        <p>目前软件对于验证码采取"人机协同"的处理办法，页面有验证码时会自动跳出，通过人工辅助点击来处理。</p>
+                        <p>处理验证码后，软件会自动继续查询。目前平均查询5个产品会跳一次验证码。</p>
+                        <div class="text-center mt-3 mb-3">
+                            <img src="https://guorui-cuhksz.oss-cn-shenzhen.aliyuncs.com/图片/出现验证码.png" alt="出现验证码界面" class="img-fluid border rounded" style="max-width: 70%; height: auto;">
+                            <p class="small text-muted mt-2">出现验证码时的界面</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://guorui-cuhksz.oss-cn-shenzhen.aliyuncs.com/图片/处理验证码之后.png" alt="处理验证码后界面" class="img-fluid border rounded" style="max-width: 70%; height: auto;">
+                            <p class="small text-muted mt-2">处理验证码后继续查询</p>
+                        </div>
+                    </div>
+
+                    <!-- 主要功能 -->
+                    <div class="alert alert-info">
+                        <h6><i class="fas fa-star me-2"></i>主要功能特点</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li><strong>两种查询模式：</strong>支持单个产品查询和批量产品查询</li>
+                                    <li><strong>字段选择功能：</strong>可自定义显示和导出的产品信息字段</li>
+                                    <li><strong>进度监控：</strong>批量查询时实时显示进度和状态</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li><strong>自动继续：</strong>遇到网络问题时可自动或手动继续查询</li>
+                                    <li><strong>失败重试：</strong>提供"未成功编号"功能便于重新查询</li>
+                                    <li><strong>灵活导出：</strong>支持Excel导出和剪贴板复制</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 最佳实践 -->
+                    <div class="alert alert-success">
+                        <h6><i class="fas fa-lightbulb me-2"></i>最佳实践建议</h6>
+                        <ul class="mb-0">
+                            <li>建议关闭"自动查询"功能，失败编码多为已下架产品，重新查询实用性不高</li>
+                            <li>查询时无需一直盯着软件，可以解放双手做其他事，出现验证码时前端网页会自动跳出</li>
+                            <li>遇到网络问题时，软件可自动或手动继续查询，确保查询任务完整性</li>
+                        </ul>
+                    </div>
+
+                    <!-- 常见问题 -->
+                    <div class="alert alert-warning">
+                        <h6><i class="fas fa-question-circle me-2"></i>常见问题</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Q: 软件启动后显示"初始化失败"？</strong><br>
+                                A: 请确认Firefox浏览器已正确安装，检查网络连接，重启软件重试。</p>
+                                
+                                <p><strong>Q: 软件启动后终端界面一直卡住？</strong><br>
+                                A: 可能是初始化时遇到验证码，查看软件打开的Firefox浏览器，人工处理验证码。</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Q: 成功率和时间预估说明</strong><br>
+                                A: 目前"成功率"计算有问题，可不作参考。对于在理财网上登记的产品，实际成功率98%。预计剩余时间仅考虑机器获取数据时间。</p>
+                                
+                                
+                                <div class="text-center mt-3">
+                                    <img src="https://guorui-cuhksz.oss-cn-shenzhen.aliyuncs.com/图片/遇到理财网上不存在的产品.png" alt="遇到不存在的产品" class="img-fluid border rounded" style="max-width: 100%; height: auto;">
+                                    <p class="small text-muted mt-2">产品不存在时的提示</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 下载安装标签页 -->
+        <div id="download-tab" class="tab-content d-none">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-download me-2"></i>下载安装</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h6><i class="fas fa-desktop me-2 text-primary"></i>理财产品查询工具</h6>
+                            <p class="text-muted">绿色便携版软件，无需安装，解压即用</p>
+                            
+                            <div class="d-flex gap-3 mb-4">
+                                <a id="client-download-btn" href="#" class="btn btn-lg btn-primary" onclick="downloadClient()">
+                                    <i class="fas fa-download me-2"></i>下载 ProductQuery.exe (约50MB)
+                                </a>
+                                <div class="d-flex flex-column justify-content-center">
+                                    <small class="text-muted">版本: v1.0.0</small>
+                                    <small class="text-muted">更新时间: 2025年9月8日</small>
+                                    <small class="text-muted">系统: Windows 7/8/10/11</small>
+                                </div>
+                            </div>
+
+                            <h6><i class="fas fa-cogs me-2 text-primary"></i>安装步骤</h6>
+                            <ol>
+                                <li>点击上方按钮下载软件包</li>
+                                <li>解压软件包到任意文件夹</li>
+                                <li>确保已安装Firefox浏览器（<strong>必需</strong>）</li>
+                                <li>直接运行ProductQuery.exe即可使用</li>
+                                <li>建议对ProductQuery.exe创建桌面快捷方式</li>
+                            </ol>
+
+                            <div class="alert alert-info mt-4">
+                                <h6><i class="fas fa-info-circle me-2"></i>关于软件</h6>
+                                <p class="mb-0">
+                                    软件适用于制作日的目标网站结构，如若未来目标网站结构变化，软件将失效。
+                                    建议定期检查更新以确保软件正常运行。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h6><i class="fas fa-globe me-2 text-primary"></i>Firefox浏览器下载</h6>
+                            <div class="d-grid gap-2 mb-3">
+                                <a href="https://www.mozilla.org/zh-CN/firefox/new/" target="_blank" class="btn btn-lg btn-outline-danger">
+                                    <i class="fab fa-firefox me-2"></i>下载 Firefox 浏览器
+                                </a>
+                            </div>
+
+                            <div class="alert alert-danger">
+                                <h6><i class="fas fa-exclamation-triangle me-2"></i>重要提醒</h6>
+                                <p class="mb-0">
+                                    <strong>必须安装Firefox浏览器</strong>，软件依赖Firefox进行网页交互。
+                                    请确保安装最新版本的Firefox浏览器。
+                                </p>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6><i class="fas fa-question-circle me-2"></i>常见问题</h6>
+                                </div>
+                                <div class="card-body">
+                                    <small>
+                                        <strong>Q: 软件启动后显示"初始化失败"？</strong><br>
+                                        A: 请确认Firefox浏览器已正确安装，检查网络连接，重启软件重试。
+                                        <br><br>
+                                        <strong>Q: 软件启动后终端界面一直卡住？</strong><br>
+                                        A: 可能是初始化时遇到验证码，查看软件打开的Firefox浏览器，人工处理验证码。
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light border-top mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h6 class="text-muted"><i class="fas fa-certificate me-2"></i>备案信息</h6>
+                    <p class="small text-muted mb-1">
+                        <i class="fas fa-shield-alt me-1"></i>备案号：粤ICP备2025459432号
+                    </p>
+                    <p class="small text-muted mb-3">
+                        <i class="fas fa-calendar-alt me-1"></i>更新时间：2025年9月8日
+                    </p>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="text-center">
+                <p class="small text-muted mb-0">
+                    <i class="fas fa-exclamation-triangle me-1"></i>
+                    本软件仅用于合法、正规的数据收集和验证，请遵守相关网站的使用条款和规定。
+                    软件适用于制作日的目标网站结构，如若未来目标网站结构变化，软件将失效。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/app_simple.js"></script>
+</body>
+</html>
