@@ -7,7 +7,7 @@
 let currentTab = 'query';
 
 // 客户端下载地址 - 阿里云OSS链接
-const CLIENT_DOWNLOAD_URL = 'https://guorui-cuhksz.oss-cn-shenzhen.aliyuncs.com/ProductQuery.exe';
+const CLIENT_DOWNLOAD_URL = 'https://guorui-cuhksz.oss-cn-shenzhen.aliyuncs.com/main.exe';
 
 // 页面加载完成后执行
 document.addEventListener('DOMContentLoaded', function() {
