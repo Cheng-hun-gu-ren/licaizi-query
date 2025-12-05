@@ -20,6 +20,15 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeApp() {
     // 初始化页面
     showTab('query');
+    
+    // 绑定下载按钮点击事件，确保无论是否加载Bootstrap都能触发提示
+    const downloadBtn = document.getElementById('client-download-btn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showContactModal();
+        });
+    }
 }
 
 /**
